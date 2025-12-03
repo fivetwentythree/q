@@ -32,6 +32,6 @@
     "href": "posts/post1.html#what-can-we-do-with-lisette-lib",
     "title": "A Quarto Page Layout Example",
     "section": "What can we do with lisette lib",
-    "text": "What can we do with lisette lib\n\nOverview\n\n\n\n\n\n\n\nFeature\nDescription\n\n\n\n\nDataBlock API\nA flexible, lego-like system to build datasets from scratch.\n\n\nlr_find()\nAutomatically plots loss vs. learning rate to find the optimal hyperparameter.\n\n\nfine_tune()\nOne-line transfer learning method to adapt pre-trained models.\n\n\nOne-Cycle Policy\nA training schedule that varies learning rates for faster convergence.\n\n\nLayered API\nA hierarchy of APIs ranging from high-level defaults to pure PyTorch access.\n\n\n\n\nThis is another way we can add this idea into this(https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.html)"
+    "text": "What can we do with lisette lib\n\nOverview\n\n\n\n\n\n\n\nFeature\nDescription\n\n\n\n\nDataBlock API\nA flexible, lego-like system to build datasets from scratch.\n\n\nlr_find()\nAutomatically plots loss vs. learning rate to find the optimal hyperparameter.\n\n\nfine_tune()\nOne-line transfer learning method to adapt pre-trained models.\n\n\nOne-Cycle Policy\nA training schedule that varies learning rates for faster convergence.\n\n\nLayered API\nA hierarchy of APIs ranging from high-level defaults to pure PyTorch access.\n\n\n\n\n\n\n\nwhy don’t this work ? link"
   }
 ]
