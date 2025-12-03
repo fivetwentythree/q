@@ -3977,80 +3977,41 @@ box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 
 <h3 class="anchored" data-anchor-id="overview">Overview</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Feature</th>
-<th style="text-align: left;">Category</th>
 <th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Layered API</strong></td>
-<td style="text-align: left;">Architecture</td>
-<td style="text-align: left;">A hierarchy of High (ready-to-use), Mid (core loop), and Low (PyTorch wrappers) level APIs, allowing both beginners and experts to work efficiently.</td>
+<td style="text-align: left;"><strong>DataBlock API</strong></td>
+<td style="text-align: left;">A flexible, lego-like system to build datasets from scratch.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>DataBlock API</strong></td>
-<td style="text-align: left;">Data Loading</td>
-<td style="text-align: left;">A flexible, “Lego-like” system for defining how to get items, label them, split them, and augment them without writing custom PyTorch datasets.</td>
+<td style="text-align: left;"><strong><code>lr_find()</code></strong></td>
+<td style="text-align: left;">Automatically plots loss vs. learning rate to find the optimal hyperparameter.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Learning Rate Finder</strong></td>
-<td style="text-align: left;">Training</td>
-<td style="text-align: left;">The iconic <code>learn.lr_find()</code> tool that plots loss against learning rate, helping you pick the perfect hyperparameter before training starts.</td>
+<td style="text-align: left;"><strong><code>fine_tune()</code></strong></td>
+<td style="text-align: left;">One-line transfer learning method to adapt pre-trained models.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>One-Cycle Policy</strong></td>
-<td style="text-align: left;">Optimization</td>
-<td style="text-align: left;">Implements Leslie Smith’s 1cycle policy (<code>fit_one_cycle</code>), allowing models to train much faster and with higher accuracy than standard SGD.</td>
+<td style="text-align: left;">A training schedule that varies learning rates for faster convergence.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Discriminative LRs</strong></td>
-<td style="text-align: left;">Optimization</td>
-<td style="text-align: left;">The ability to apply different learning rates to different layers of a neural network (e.g., training the “head” faster than the pre-trained body).</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Transfer Learning</strong></td>
-<td style="text-align: left;">Modeling</td>
-<td style="text-align: left;">First-class support for Transfer Learning via <code>learn.fine_tune()</code>, which automatically freezes and unfreezes layers correctly during training.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Tabular Embeddings</strong></td>
-<td style="text-align: left;">Tabular</td>
-<td style="text-align: left;">Automatically creates trainable embedding matrices for high-cardinality categorical variables in tabular datasets.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>ULMFiT</strong></td>
-<td style="text-align: left;">NLP</td>
-<td style="text-align: left;">Universal Language Model Fine-tuning. A transfer learning method for NLP that performs state-of-the-art text classification.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Mixed Precision</strong></td>
-<td style="text-align: left;">Performance</td>
-<td style="text-align: left;">Native support for fp16 training (<code>to_fp16()</code>), which speeds up training on modern GPUs and reduces memory usage.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>TTA (Test Time Augmentation)</strong></td>
-<td style="text-align: left;">Inference</td>
-<td style="text-align: left;">Automatically creates multiple augmented versions of test images and averages their predictions for higher accuracy (<code>learn.tta()</code>).</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Transforms Pipeline</strong></td>
-<td style="text-align: left;">Augmentation</td>
-<td style="text-align: left;">A dual-pipeline system (item transforms vs. batch transforms) that runs augmentations on the GPU for speed.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Callbacks System</strong></td>
-<td style="text-align: left;">Customization</td>
-<td style="text-align: left;">A rich event system allowing you to inject code at any point in the training loop (e.g., <code>SaveModelCallback</code>, <code>EarlyStoppingCallback</code>).</td>
+<td style="text-align: left;"><strong>Layered API</strong></td>
+<td style="text-align: left;">A hierarchy of APIs ranging from high-level defaults to pure PyTorch access.</td>
 </tr>
 </tbody>
 </table>
+<div class="{:aside}">
+<p>This is another way we can add this idea into this !(https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.html)</p>
+</div>
 
 
 </section>
