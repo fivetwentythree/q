@@ -3904,6 +3904,8 @@ background-color: white; }
   <li><a href="#this-is-how-to-write-some-text-including-some-citations-as-sidenotes" id="toc-this-is-how-to-write-some-text-including-some-citations-as-sidenotes" class="nav-link active" data-scroll-target="#this-is-how-to-write-some-text-including-some-citations-as-sidenotes">This is how to write some text including some citations as sidenotes</a></li>
   <li><a href="#this-is-how-to-embed-an-image" id="toc-this-is-how-to-embed-an-image" class="nav-link" data-scroll-target="#this-is-how-to-embed-an-image">This is how to embed an image</a></li>
   <li><a href="#what-can-we-do-with-lisette-lib" id="toc-what-can-we-do-with-lisette-lib" class="nav-link" data-scroll-target="#what-can-we-do-with-lisette-lib">What can we do with lisette lib</a></li>
+  <li><a href="#import-cachy" id="toc-import-cachy" class="nav-link" data-scroll-target="#import-cachy">Import Cachy</a></li>
+  <li><a href="#ok-now-if-we-try-to-do-the-same-prompt-again-what-would-happen" id="toc-ok-now-if-we-try-to-do-the-same-prompt-again-what-would-happen" class="nav-link" data-scroll-target="#ok-now-if-we-try-to-do-the-same-prompt-again-what-would-happen">Ok now if we try to do the same prompt again what would happen?</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="post1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -4061,9 +4063,217 @@ background-color: white; }
 </details>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="import-cachy" class="level2">
+<h2 class="anchored" data-anchor-id="import-cachy">Import Cachy</h2>
+<div id="868743e0-753f-4172-922c-15ea4fa2283b" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cachy <span class="im">import</span> enable_cachy</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>enable_cachy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="33d75546-1793-4abc-8dc1-cadeca5e737f" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> c(<span class="st">&#39;This is nice,can you tell me a joke?&#39;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
+<p>Of course!</p>
+<p>Why don’t scientists trust atoms?</p>
+<p>…Because they make up everything! 😄</p>
+<details>
+<ul>
+<li>id: <code>YbwwaeaPMd7ijuMPrIGt2A0</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=556, prompt_tokens=25, total_tokens=581, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=535, rejected_prediction_tokens=None, text_tokens=21, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=25, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+</section>
+<section id="ok-now-if-we-try-to-do-the-same-prompt-again-what-would-happen" class="level2">
+<h2 class="anchored" data-anchor-id="ok-now-if-we-try-to-do-the-same-prompt-again-what-would-happen">Ok now if we try to do the same prompt again what would happen?</h2>
+<div id="253dbb34-f2b2-41e6-a169-6830bec2aaf5" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>res_2 <span class="op">=</span> c(<span class="st">&#39;This is nice,can you tell me a joke?&#39;</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>res_2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="13">
+<p>Glad you liked it! Here’s another one for you:</p>
+<p>What do you call a fake noodle?</p>
+<p>…An impasta! 😉</p>
+<details>
+<ul>
+<li>id: <code>srwwafe4EofKg8UPjvDlkQ4</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=544, prompt_tokens=59, total_tokens=603, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=515, rejected_prediction_tokens=None, text_tokens=29, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=59, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<p>I think you need <code>patch_litellm()</code></p>
+<div id="b464bf69-1140-4d58-8407-5c72bccf614e" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>patch_litellm()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f479bfda-f856-466d-9b39-58b5e5511916" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> c(<span class="st">&#39;Tell me about Sri Lanka&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="0a1fe5ce-122f-4c90-8d82-cf060d76ba80" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>first</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
+<p>Of course! Sri Lanka is a fascinating and beautiful country with a rich history and diverse culture. Here’s a comprehensive overview for you.</p>
+<section id="an-introduction-to-sri-lanka" class="level3">
+<h3 class="anchored" data-anchor-id="an-introduction-to-sri-lanka"><strong>An Introduction to Sri Lanka</strong></h3>
+<p>Often called the <strong>“Pearl of the Indian Ocean”</strong> or the <strong>“Resplendent Isle,”</strong> Sri Lanka is a teardrop-shaped island nation located just south of India. It’s a country of incredible diversity packed into a relatively small area. You can go from sun-drenched beaches to cool, misty mountains covered in tea plantations in just a few hours.</p>
+<hr>
+</section>
+<section id="key-aspects-of-sri-lanka" class="level3">
+<h3 class="anchored" data-anchor-id="key-aspects-of-sri-lanka"><strong>Key Aspects of Sri Lanka</strong></h3>
+<section id="geography-and-nature" class="level4">
+<h4 class="anchored" data-anchor-id="geography-and-nature"><strong>1. Geography and Nature</strong></h4>
+<ul>
+<li><strong>Diverse Landscapes:</strong> The coastal belt is lined with stunning beaches and lagoons. The interior features a central highland region with mountains, waterfalls, and vast tea estates. The northern and eastern parts are flatter and drier.</li>
+<li><strong>Incredible Wildlife:</strong> Sri Lanka is one of the world’s top biodiversity hotspots. It’s famous for its large population of <strong>Asian elephants</strong>, which can be seen in national parks like Udawalawe and Minneriya. It’s also one of the best places in the world to spot <strong>leopards</strong> (in Yala National Park) and <strong>blue whales</strong> (off the southern coast near Mirissa).</li>
+<li><strong>National Parks:</strong> The country has numerous protected areas, including Sinharaja Forest Reserve, a UNESCO World Heritage Site and the last viable area of primary tropical rainforest in the country.</li>
+</ul>
+</section>
+<section id="history-and-culture" class="level4">
+<h4 class="anchored" data-anchor-id="history-and-culture"><strong>2. History and Culture</strong></h4>
+<ul>
+<li><strong>Ancient Roots:</strong> Sri Lanka has a documented history of over 2,500 years. The ancient cities of <strong>Anuradhapura</strong> and <strong>Polonnaruwa</strong> were magnificent capitals with enormous stupas (dome-shaped Buddhist shrines) and advanced irrigation systems.</li>
+<li><strong>The Cultural Triangle:</strong> This area in the center of the country is home to several UNESCO World Heritage Sites, including:
+<ul>
+<li><strong>Sigiriya Rock Fortress:</strong> An ancient palace and fortress built atop a massive rock column, famous for its stunning frescoes.</li>
+<li><strong>Dambulla Cave Temple:</strong> A complex of caves filled with hundreds of Buddha statues and intricate paintings.</li>
+<li><strong>The Sacred City of Kandy:</strong> Home to the Temple of the Tooth Relic, which houses a sacred tooth of the Buddha.</li>
+</ul></li>
+<li><strong>Colonial Influence:</strong> The island was colonized by the Portuguese, Dutch, and finally the British, who introduced tea cultivation on a massive scale. This colonial past is visible in the architecture of cities like <strong>Galle</strong>, with its famous Dutch Fort.</li>
+<li><strong>People and Religion:</strong> The majority of the population is <strong>Sinhalese</strong> (mostly Buddhist), with a significant <strong>Tamil</strong> minority (mostly Hindu). There are also Muslim and Christian communities. This mix of cultures makes for a vibrant tapestry of festivals, traditions, and languages (Sinhala and Tamil are the official languages).</li>
+</ul>
+</section>
+<section id="the-economy-and-famous-exports" class="level4">
+<h4 class="anchored" data-anchor-id="the-economy-and-famous-exports"><strong>3. The Economy and Famous Exports</strong></h4>
+<ul>
+<li><strong>Ceylon Tea:</strong> Sri Lanka (formerly known as Ceylon) is one of the world’s largest tea exporters. A visit to the hill country isn’t complete without a tour of a tea plantation.</li>
+<li><strong>Spices:</strong> The island has been a hub for the spice trade for centuries. It’s famous for its high-quality <strong>cinnamon</strong>, as well as cloves, nutmeg, and pepper.</li>
+<li><strong>Gems:</strong> Known as the “Gem Island,” Sri Lanka is a source of beautiful sapphires, rubies, and other precious stones.</li>
+<li><strong>Tourism:</strong> Tourism is a vital part of the economy, attracting visitors with its blend of nature, culture, adventure, and wellness.</li>
+</ul>
+</section>
+<section id="food" class="level4">
+<h4 class="anchored" data-anchor-id="food"><strong>4. Food</strong></h4>
+<p>Sri Lankan cuisine is a treat! It’s known for its vibrant colors and rich, spicy flavors. * <strong>Rice and Curry:</strong> This is the national dish, but it’s not just one curry. It’s a plate of rice served with a variety of small, flavorful dishes made from vegetables, meat, or fish, often using coconut milk and a unique blend of spices. * <strong>Kottu Roti:</strong> A popular street food made from chopped flatbread, vegetables, egg, and/or meat, all stir-fried on a hot griddle with a rhythmic clanging of metal blades. * <strong>Hoppers (Appa):</strong> Bowl-shaped pancakes made from fermented rice flour and coconut milk. They are crispy on the edges and soft in the center, often served with an egg cooked inside (<strong>Egg Hopper</strong>). * <strong>String Hoppers (Idiyappam):</strong> Steamed nests of rice flour noodles, usually eaten for breakfast with a coconut sambol and curry.</p>
+<hr>
+</section>
+</section>
+<section id="recent-history" class="level3">
+<h3 class="anchored" data-anchor-id="recent-history"><strong>Recent History</strong></h3>
+<p>It’s also important to acknowledge that Sri Lanka has faced significant challenges. The country endured a long and painful civil war from 1983 to 2009. In recent years, it has also faced economic difficulties. Despite these hardships, the people are known for their resilience, warmth, and hospitality.</p>
+<p>In short, Sri Lanka is a land of contrasts and immense beauty, offering everything from ancient history and spiritual sites to thrilling wildlife safaris and relaxing beach holidays.</p>
+<details>
+<ul>
+<li>id: <code>chatcmpl-xxx</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=2564, prompt_tokens=95, total_tokens=2659, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1471, rejected_prediction_tokens=None, text_tokens=1093, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=95, image_tokens=None))</code></li>
+</ul>
+</details>
+</section>
+</div>
+</div>
+<div id="0e87d32e-1720-4526-ac09-9835e5a2dac9" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now let&#39;s see how cached response work </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>cached_response <span class="op">=</span> c(<span class="st">&#39;Tell me about Sri Lanka&#39;</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>cached_response</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="19">
+<p>You got it! Since we’ve covered the general overview, let’s dive into some of the most unique and fascinating facts about Sri Lanka.</p>
+<p>Here are some things that make the island truly special:</p>
+<p><strong>1. The Origin of the Word “Serendipity”</strong> The English word “serendipity,” which means a fortunate or happy accident, comes from <em>Serendib</em>, an old Arabic name for Sri Lanka. The term was coined by Horace Walpole in 1754, inspired by a Persian fairy tale about three princes from Serendib who were always making discoveries by accident.</p>
+<p><strong>2. Home to the World’s First Female Prime Minister</strong> In 1960, Sri Lanka (then Ceylon) made history when Sirimavo Bandaranaike became the world’s first-ever female head of government.</p>
+<p><strong>3. The National Flag is One of the Oldest in the World</strong> The Sri Lankan flag is rich with symbolism. The golden lion represents the Sinhalese people, the four Bo leaves in the corners represent the four Buddhist virtues, and the orange and green stripes represent the Tamil and Muslim minorities, respectively.</p>
+<p><strong>4. It’s the True Home of Cinnamon</strong> While many countries use cinnamon, the “true cinnamon” (<em>Cinnamomum verum</em>) is native to Sri Lanka. For centuries, the island was the world’s primary source, making it a priceless hub for spice traders.</p>
+<p><strong>5. The National Sport Isn’t Cricket</strong> Although cricket is wildly popular and the country has a world-class team, the official national sport of Sri Lanka is actually <strong>volleyball</strong>.</p>
+<p><strong>6. A Haven for Elephants</strong> Sri Lanka has the highest density of wild Asian elephants in the world. Every year, hundreds of elephants gather at the Minneriya National Park in an event known as “The Gathering,” which is the largest meeting of Asian elephants on the planet.</p>
+<p><strong>7. The Sacred Tooth of the Buddha</strong> The city of Kandy is home to the <em>Sri Dalada Maligawa</em> (Temple of the Sacred Tooth Relic). This temple houses what is believed to be a real tooth of the Buddha, making it one of the most sacred pilgrimage sites for Buddhists worldwide.</p>
+<p><strong>8. A Very High Literacy Rate</strong> Despite its economic challenges, Sri Lanka boasts one of the highest literacy rates in South Asia, at over 92%. Education is highly valued in the culture.</p>
+<p>Is there any of these points you’d find interesting to explore further? For example, we could talk more about the history of the spice trade or the significance of the Temple of the Tooth.</p>
+<details>
+<ul>
+<li>id: <code>chatcmpl-xxx</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=1617, prompt_tokens=1677, total_tokens=3294, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1068, rejected_prediction_tokens=None, text_tokens=549, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1677, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="6f7d0c1c-a521-4062-b873-b32b944104a4" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(Chat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>[&#39;__call__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;_call&#39;,
+ &#39;_prep_msg&#39;,
+ &#39;print_hist&#39;]</code></pre>
+</div>
+</div>
+<div id="50b815cc-6695-4e1f-9341-e1a097fac614" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>display(c.print_hist())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;hey&#39;}
+
+Message(content=&#39;Hey there! How can I help you today?&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+
+{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;This is nice,can you tell me a joke?&#39;}
+
+Message(content=&quot;Of course!\n\nWhy don&#39;t scientists trust atoms?\n\n...Because they make up everything! 😄&quot;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+
+{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;This is nice,can you tell me a joke?&#39;}
+
+Message(content=&quot;Glad you liked it! Here&#39;s another one for you:\n\nWhat do you call a fake noodle?\n\n...An impasta! 😉&quot;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+
+{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;Tell me about Sri Lanka&#39;}
+
+Message(content=&#39;Of course! Sri Lanka is a fascinating and beautiful country with a rich history and diverse culture. Here’s a comprehensive overview for you.\n\n### **An Introduction to Sri Lanka**\n\nOften called the **&quot;Pearl of the Indian Ocean&quot;** or the **&quot;Resplendent Isle,&quot;** Sri Lanka is a teardrop-shaped island nation located just south of India. It\&#39;s a country of incredible diversity packed into a relatively small area. You can go from sun-drenched beaches to cool, misty mountains covered in tea plantations in just a few hours.\n\n---\n\n### **Key Aspects of Sri Lanka**\n\n#### **1. Geography and Nature**\n*   **Diverse Landscapes:** The coastal belt is lined with stunning beaches and lagoons. The interior features a central highland region with mountains, waterfalls, and vast tea estates. The northern and eastern parts are flatter and drier.\n*   **Incredible Wildlife:** Sri Lanka is one of the world\&#39;s top biodiversity hotspots. It\&#39;s famous for its large population of **Asian elephants**, which can be seen in national parks like Udawalawe and Minneriya. It\&#39;s also one of the best places in the world to spot **leopards** (in Yala National Park) and **blue whales** (off the southern coast near Mirissa).\n*   **National Parks:** The country has numerous protected areas, including Sinharaja Forest Reserve, a UNESCO World Heritage Site and the last viable area of primary tropical rainforest in the country.\n\n#### **2. History and Culture**\n*   **Ancient Roots:** Sri Lanka has a documented history of over 2,500 years. The ancient cities of **Anuradhapura** and **Polonnaruwa** were magnificent capitals with enormous stupas (dome-shaped Buddhist shrines) and advanced irrigation systems.\n*   **The Cultural Triangle:** This area in the center of the country is home to several UNESCO World Heritage Sites, including:\n    *   **Sigiriya Rock Fortress:** An ancient palace and fortress built atop a massive rock column, famous for its stunning frescoes.\n    *   **Dambulla Cave Temple:** A complex of caves filled with hundreds of Buddha statues and intricate paintings.\n    *   **The Sacred City of Kandy:** Home to the Temple of the Tooth Relic, which houses a sacred tooth of the Buddha.\n*   **Colonial Influence:** The island was colonized by the Portuguese, Dutch, and finally the British, who introduced tea cultivation on a massive scale. This colonial past is visible in the architecture of cities like **Galle**, with its famous Dutch Fort.\n*   **People and Religion:** The majority of the population is **Sinhalese** (mostly Buddhist), with a significant **Tamil** minority (mostly Hindu). There are also Muslim and Christian communities. This mix of cultures makes for a vibrant tapestry of festivals, traditions, and languages (Sinhala and Tamil are the official languages).\n\n#### **3. The Economy and Famous Exports**\n*   **Ceylon Tea:** Sri Lanka (formerly known as Ceylon) is one of the world\&#39;s largest tea exporters. A visit to the hill country isn\&#39;t complete without a tour of a tea plantation.\n*   **Spices:** The island has been a hub for the spice trade for centuries. It\&#39;s famous for its high-quality **cinnamon**, as well as cloves, nutmeg, and pepper.\n*   **Gems:** Known as the &quot;Gem Island,&quot; Sri Lanka is a source of beautiful sapphires, rubies, and other precious stones.\n*   **Tourism:** Tourism is a vital part of the economy, attracting visitors with its blend of nature, culture, adventure, and wellness.\n\n#### **4. Food**\nSri Lankan cuisine is a treat! It\&#39;s known for its vibrant colors and rich, spicy flavors.\n*   **Rice and Curry:** This is the national dish, but it\&#39;s not just one curry. It\&#39;s a plate of rice served with a variety of small, flavorful dishes made from vegetables, meat, or fish, often using coconut milk and a unique blend of spices.\n*   **Kottu Roti:** A popular street food made from chopped flatbread, vegetables, egg, and/or meat, all stir-fried on a hot griddle with a rhythmic clanging of metal blades.\n*   **Hoppers (Appa):** Bowl-shaped pancakes made from fermented rice flour and coconut milk. They are crispy on the edges and soft in the center, often served with an egg cooked inside (**Egg Hopper**).\n*   **String Hoppers (Idiyappam):** Steamed nests of rice flour noodles, usually eaten for breakfast with a coconut sambol and curry.\n\n---\n\n### **Recent History**\n\nIt\&#39;s also important to acknowledge that Sri Lanka has faced significant challenges. The country endured a long and painful civil war from 1983 to 2009. In recent years, it has also faced economic difficulties. Despite these hardships, the people are known for their resilience, warmth, and hospitality.\n\nIn short, Sri Lanka is a land of contrasts and immense beauty, offering everything from ancient history and spiritual sites to thrilling wildlife safaris and relaxing beach holidays.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+
+{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;Tell me about Sri Lanka&#39;}
+
+Message(content=&#39;Of course! We just touched on it, but I can give you a more focused summary or dive deeper into a specific area.\n\nHere\&#39;s a quick, &quot;at-a-glance&quot; look at Sri Lanka:\n\n**Sri Lanka: The Essentials**\n\n*   **Nickname:** The Pearl of the Indian Ocean.\n*   **Location:** An island nation in the Indian Ocean, southeast of India.\n*   **Capital Cities:**\n    *   **Colombo:** The commercial and largest city.\n    *   **Sri Jayawardenepura Kotte:** The official administrative capital.\n*   **People:** A diverse mix of cultures, primarily the Sinhalese (mostly Buddhist) and Tamils (mostly Hindu), with significant Muslim and Christian communities.\n\n**What is Sri Lanka Famous For?**\n\n1.  **The Cultural Triangle:** This is the historical heart of the country, home to incredible UNESCO World Heritage sites like the **Sigiriya Rock Fortress**, the ancient cities of **Anuradhapura** and **Polonnaruwa**, and the **Dambulla Cave Temples**.\n\n2.  **Ceylon Tea:** The cool, misty hill country around cities like Nuwara Eliya and Ella is covered in lush green tea plantations. Sri Lanka is one of the world\&#39;s top tea producers.\n\n3.  **Incredible Wildlife:** It\&#39;s one of the best places in Asia for wildlife safaris. You can see huge herds of elephants in **Udawalawe National Park**, leopards in **Yala National Park**, and blue whales off the coast of **Mirissa**.\n\n4.  **Beautiful Beaches:** The coastline is lined with golden-sand beaches, from the bustling surf spots in the south (like Weligama and Hikkaduwa) to the more tranquil shores of the east coast (like Trincomalee and Arugam Bay).\n\n5.  **Delicious Food:** The cuisine is famous for its aromatic spices. The staple dish is **rice and curry**, but street food like **kottu roti** (chopped flatbread stir-fry) is a must-try.\n\nIs there a particular part of that you\&#39;d like to know more about? For example, are you interested in travel tips, its history, the food, or its wildlife?&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+
+{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;Tell me about Sri Lanka&#39;}
+
+Message(content=&#39;You got it! Since we\&#39;ve covered the general overview, let\&#39;s dive into some of the most unique and fascinating facts about Sri Lanka.\n\nHere are some things that make the island truly special:\n\n**1. The Origin of the Word &quot;Serendipity&quot;**\nThe English word &quot;serendipity,&quot; which means a fortunate or happy accident, comes from *Serendib*, an old Arabic name for Sri Lanka. The term was coined by Horace Walpole in 1754, inspired by a Persian fairy tale about three princes from Serendib who were always making discoveries by accident.\n\n**2. Home to the World\&#39;s First Female Prime Minister**\nIn 1960, Sri Lanka (then Ceylon) made history when Sirimavo Bandaranaike became the world\&#39;s first-ever female head of government.\n\n**3. The National Flag is One of the Oldest in the World**\nThe Sri Lankan flag is rich with symbolism. The golden lion represents the Sinhalese people, the four Bo leaves in the corners represent the four Buddhist virtues, and the orange and green stripes represent the Tamil and Muslim minorities, respectively.\n\n**4. It\&#39;s the True Home of Cinnamon**\nWhile many countries use cinnamon, the &quot;true cinnamon&quot; (*Cinnamomum verum*) is native to Sri Lanka. For centuries, the island was the world\&#39;s primary source, making it a priceless hub for spice traders.\n\n**5. The National Sport Isn\&#39;t Cricket**\nAlthough cricket is wildly popular and the country has a world-class team, the official national sport of Sri Lanka is actually **volleyball**.\n\n**6. A Haven for Elephants**\nSri Lanka has the highest density of wild Asian elephants in the world. Every year, hundreds of elephants gather at the Minneriya National Park in an event known as &quot;The Gathering,&quot; which is the largest meeting of Asian elephants on the planet.\n\n**7. The Sacred Tooth of the Buddha**\nThe city of Kandy is home to the *Sri Dalada Maligawa* (Temple of the Sacred Tooth Relic). This temple houses what is believed to be a real tooth of the Buddha, making it one of the most sacred pilgrimage sites for Buddhists worldwide.\n\n**8. A Very High Literacy Rate**\nDespite its economic challenges, Sri Lanka boasts one of the highest literacy rates in South Asia, at over 92%. Education is highly valued in the culture.\n\nIs there any of these points you\&#39;d find interesting to explore further? For example, we could talk more about the history of the spice trade or the significance of the Temple of the Tooth.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>None</code></pre>
+</div>
+</div>
+
+
 </section>
 
 
