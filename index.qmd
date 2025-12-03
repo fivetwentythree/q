@@ -1,0 +1,16 @@
+---
+title: "My Data Science Blog"
+listing:
+  contents: posts        # This points to your folder of notebooks
+  sort: "date desc"      # Sort by date, newest first
+  type: default          # The layout style (default, grid, or table)
+  categories: true       # Show categories (tags) in a sidebar
+  sort-ui: false         # Hide the "sort by" dropdown
+  filter-ui: false       # Hide the search bar (optional)
+page-layout: full
+title-block-banner: true # Adds a nice colored banner at the top
+---
+
+# Welcome!
+
+This is where I document my data analysis projects. Check out the posts below.
