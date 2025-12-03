@@ -1,5 +1,5 @@
 ---
-title: "Lochana Perera"
+title: ""
 listing:
   contents: posts        # This points to your folder of notebooks
   sort: "date desc"      # Sort by date, newest first
