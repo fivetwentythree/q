@@ -25,6 +25,13 @@
     "href": "posts/post1.html#this-is-how-to-embed-an-image",
     "title": "A Quarto Page Layout Example",
     "section": "This is how to embed an image",
-    "text": "This is how to embed an image\n\n\n\n\n\nPro Tip: This dataset was cleaned using the Pandas library before ingestion."
+    "text": "This is how to embed an image\n\n\n\nPro Tip: This dataset was cleaned using the Pandas library before ingestion."
+  },
+  {
+    "objectID": "posts/post1.html#what-can-we-do-with-lisette-lib",
+    "href": "posts/post1.html#what-can-we-do-with-lisette-lib",
+    "title": "A Quarto Page Layout Example",
+    "section": "What can we do with lisette lib",
+    "text": "What can we do with lisette lib\n\nOverview\n\n\n\n\n\n\n\n\nFeature\nCategory\nDescription\n\n\n\n\nLayered API\nArchitecture\nA hierarchy of High (ready-to-use), Mid (core loop), and Low (PyTorch wrappers) level APIs, allowing both beginners and experts to work efficiently.\n\n\nDataBlock API\nData Loading\nA flexible, “Lego-like” system for defining how to get items, label them, split them, and augment them without writing custom PyTorch datasets.\n\n\nLearning Rate Finder\nTraining\nThe iconic learn.lr_find() tool that plots loss against learning rate, helping you pick the perfect hyperparameter before training starts.\n\n\nOne-Cycle Policy\nOptimization\nImplements Leslie Smith’s 1cycle policy (fit_one_cycle), allowing models to train much faster and with higher accuracy than standard SGD.\n\n\nDiscriminative LRs\nOptimization\nThe ability to apply different learning rates to different layers of a neural network (e.g., training the “head” faster than the pre-trained body).\n\n\nTransfer Learning\nModeling\nFirst-class support for Transfer Learning via learn.fine_tune(), which automatically freezes and unfreezes layers correctly during training.\n\n\nTabular Embeddings\nTabular\nAutomatically creates trainable embedding matrices for high-cardinality categorical variables in tabular datasets.\n\n\nULMFiT\nNLP\nUniversal Language Model Fine-tuning. A transfer learning method for NLP that performs state-of-the-art text classification.\n\n\nMixed Precision\nPerformance\nNative support for fp16 training (to_fp16()), which speeds up training on modern GPUs and reduces memory usage.\n\n\nTTA (Test Time Augmentation)\nInference\nAutomatically creates multiple augmented versions of test images and averages their predictions for higher accuracy (learn.tta()).\n\n\nTransforms Pipeline\nAugmentation\nA dual-pipeline system (item transforms vs. batch transforms) that runs augmentations on the GPU for speed.\n\n\nCallbacks System\nCustomization\nA rich event system allowing you to inject code at any point in the training loop (e.g., SaveModelCallback, EarlyStoppingCallback)."
   }
 ]
