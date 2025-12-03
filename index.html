@@ -108,6 +108,14 @@ ul.task-list li input[type="checkbox"] {
     /* Optional: Adds a white background so transparent plots look solid */
     background-color: white; 
   }
+  /* 2. Hover State - This makes it "come out of the page" */
+  main img:hover, .cell-output-display img:hover {
+    /* Moves the image up by 5 pixels */
+    transform: translateY(-5px);
+    
+    /* Increases shadow depth to simulate height */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
 </style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
