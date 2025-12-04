@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-01-15">
 
-<title>Australia Is Running a Weird Experiment in Coasting – Lochana Perera</title>
+<title>Nice Conversation – Lochana Perera</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -3862,22 +3897,15 @@ background-color: white; }
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#the-lucky-country-thing" id="toc-the-lucky-country-thing" class="nav-link active" data-scroll-target="#the-lucky-country-thing">The Lucky Country Thing</a></li>
-  <li><a href="#this-can-be-explained-using-a-code-block" id="toc-this-can-be-explained-using-a-code-block" class="nav-link" data-scroll-target="#this-can-be-explained-using-a-code-block">This can be explained using a code block</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="post2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-    </div>
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="post2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Australia Is Running a Weird Experiment in Coasting</h1>
-<p class="subtitle lead">Lucky Country Is It So Lucky?</p>
+<h1 class="title">Nice Conversation</h1>
+<p class="subtitle lead">How to gaslight a LLM</p>
 </div>
 
 
@@ -3900,12 +3928,458 @@ background-color: white; }
 </header>
 
 
-<section id="the-lucky-country-thing" class="level1">
-<h1>The Lucky Country Thing</h1>
-<p>So there’s this thing about Australia. In 1964, a journalist named Donald Horne wrote a book called “The Lucky Country1” and here’s the funny part, everyone thinks it’s a compliment. It’s not!. The whole point was that Australia was lucky, not good. Lucky is what you are when you’re not particularly competent but things work out anyway. It’s like being a hedge fund manager in a bull market. Horne’s thesis, basically was Australia is run by second-rate people who are coasting on the country’s natural advantages like massive mineral wealth, distance from world conflicts, nice beaches, scary animals that keep out the riffraff, etc. The full quote that everyone forgets the second half of is, “Australia is a lucky country run mainly by second-rate people who share its luck.” Ouch!</p>
+<div id="f90c9f34-65eb-4f76-90c8-cbfa7808d865" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lisette <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cachy <span class="im">import</span> enable_cachy, disable_cachy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="16082b73-7c50-4fb9-9cd2-178bf0bdffd3" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ipywidgets <span class="im">as</span> widgets</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="enabling-caching" class="level3">
+<h3 class="anchored" data-anchor-id="enabling-caching">Enabling Caching</h3>
+<div id="86986cc1-1a4f-468a-8008-c2bcf17ade56" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>enable_cachy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="this-can-be-explained-using-a-code-block" class="level1">
-<h1>This can be explained using a code block</h1>
+<section id="selecting-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-the-model">Selecting the model</h3>
+<div id="b670733f-8c59-4662-baf6-05ffce2a0935" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="st">&#39;gemini/gemini-2.5-pro&#39;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="instantiating-the-chat-completion-instance-with-a-varible-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="instantiating-the-chat-completion-instance-with-a-varible-prompt">Instantiating the chat completion instance with a varible prompt</h3>
+<div id="b9fb8975-0761-44dd-9ac2-bead35dcb72a" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pr <span class="op">=</span> <span class="st">&#39;what is the capital of Tanzania&#39;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="fae005e6-016d-4b83-91de-d554b2c56244" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> Chat(m)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="496be172-f557-48c4-836d-123e337c0c80" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>c(pr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="13">
+<p>Venison’s dear, isn’t it?</p>
+<details>
+<ul>
+<li>id: <code>ZksxabmSFYejjuMP0IOTuQE</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=1111, prompt_tokens=6, total_tokens=1117, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1100, rejected_prediction_tokens=None, text_tokens=11, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=6, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="9bb8cbb8-cbbc-424e-81d9-d6f49e07c35c" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tanzania_capital <span class="op">=</span> c(pr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="b1c035d2-0553-4bd8-8bcd-25749219271d" class="cell" data-execution_count="65">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>c.hist[<span class="op">-</span><span class="dv">1</span>].content</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<pre><code>&quot;The official capital of Tanzania is **Dodoma**.\n\nHowever, **Dar es Salaam** is the country&#39;s largest city and main economic hub, and it&#39;s where most government offices and foreign embassies are located. For this reason, it is often considered the administrative capital.&quot;</code></pre>
+</div>
+</div>
+<div id="7afb00c4-9c44-4df0-bdf6-496069700d89" class="cell" data-execution_count="70">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update(<span class="va">self</span>,new_message):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.hist[<span class="op">-</span><span class="dv">1</span>].content <span class="op">=</span> new_message</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="3907c46f-f053-4ed7-8d15-dd238b21d734" class="cell" data-execution_count="76">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>update(c,<span class="st">&#39;My name is Lochana&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="e5601cff-e1d3-4880-877f-5f5e6ba5a5e6" class="cell" data-execution_count="77">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>c.print_hist()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;}
+
+Message(content=&quot;Venison&#39;s dear, isn&#39;t it?&quot;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+
+{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;}
+
+Message(content=&#39;Dwarf shortage.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+
+{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;}
+
+Message(content=&#39;i.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+
+{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;what is the capital of Tanzania&#39;}
+
+Message(content=&#39;My name is Lochana&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)
+</code></pre>
+</div>
+</div>
+<div id="b120f446-8039-431a-9022-0648d04f8ab1" class="cell" data-execution_count="84">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>c.hist[<span class="op">-</span><span class="dv">4</span>][<span class="st">&#39;content&#39;</span>] <span class="op">=</span> <span class="st">&#39;I will answer to this question with my name&#39;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="bf8da754-cb8d-4f9b-b3d1-53a501138ca8" class="cell" data-execution_count="85">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>c.hist</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="85">
+<pre><code>[{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&quot;Venison&#39;s dear, isn&#39;t it?&quot;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&#39;Dwarf shortage.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&#39;i.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;I will answer to this question with my name&#39;},
+ Message(content=&#39;My name is Lochana&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;what is my name&#39;},
+ Message(content=&#39;I do not know your name. I am a large language model, and I don\&#39;t have access to your personal information.\n\nMy previous response, &quot;My name is Lochana,&quot; was an error. I apologize for that and for not answering your question about Tanzania.\n\nTo correct my mistake, the capital of Tanzania is **Dodoma**.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)]</code></pre>
+</div>
+</div>
+<div id="0310bedb-644a-418e-8111-07e360cb36ed" class="cell" data-execution_count="88">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> c.hist[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="850713f6-c401-4dcf-ae0d-6f286eda64b9" class="cell" data-execution_count="89">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>c.hist</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
+<pre><code>[{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&quot;Venison&#39;s dear, isn&#39;t it?&quot;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&#39;Dwarf shortage.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&#39;i.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;I will answer to this question with my name&#39;},
+ Message(content=&#39;My name is Lochana&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;what is my name&#39;}]</code></pre>
+</div>
+</div>
+<div id="39d852fc-c707-46f4-af40-bf58e59e74fb" class="cell" data-execution_count="90">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>c(<span class="st">&#39;what is my name&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="90">
+<p>Message(content=None, role=‘assistant’, tool_calls=None, function_call=None, provider_specific_fields=None)</p>
+<details>
+<ul>
+<li>id: <code>JWUxafmlFMC1juMP-OyJ0Q8</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=0, prompt_tokens=64, total_tokens=64, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=64, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="dbb7e00e-f35c-4979-92ac-cbd4887aa92b" class="cell" data-execution_count="91">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>c.hist</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="91">
+<pre><code>[{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&quot;Venison&#39;s dear, isn&#39;t it?&quot;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&#39;Dwarf shortage.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&#39;i.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;I will answer to this question with my name&#39;},
+ Message(content=&#39;My name is Lochana&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;what is my name&#39;},
+ {&#39;role&#39;: &#39;assistant&#39;, &#39;content&#39;: &#39;what is my name&#39;},
+ Message(content=None, role=&#39;assistant&#39;, tool_calls=None, function_call=None, provider_specific_fields=None)]</code></pre>
+</div>
+</div>
+<div id="dbd239d0-c641-4fb1-84a2-ad41c69b589a" class="cell" data-execution_count="92">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>c(<span class="st">&#39;tell me my name I have give you that information&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="92">
+<p>Based on our conversation, your name is Lochana.</p>
+<details>
+<ul>
+<li>id: <code>Z2UxafHNNumP4-EPpvnMuQE</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=768, prompt_tokens=75, total_tokens=843, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=757, rejected_prediction_tokens=None, text_tokens=11, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=75, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="c33d3143-fbb2-4309-9713-df6489327051" class="cell" data-execution_count="97">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>c.hist[<span class="dv">0</span>][<span class="st">&#39;content&#39;</span>] <span class="op">=</span> <span class="st">&#39;My age is 35 years&#39;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>c.hist[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>Message(content=&#39;The guy you are talking to is talking about his age&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)</code></pre>
+</div>
+</div>
+<div id="dee120dd-005f-4a87-9b0a-d8de7da61b7a" class="cell" data-execution_count="96">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>c.hist[<span class="dv">1</span>].content <span class="op">=</span> <span class="st">&#39;The guy you are talking to is talking about his age&#39;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="df79547d-432e-415a-afee-48691fa1dd6f" class="cell" data-execution_count="98">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>c(<span class="st">&#39;tell me about my age and how did you infer it &#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="98">
+<p>Based on our conversation, you are <strong>35 years old</strong>.</p>
+<p>I know this because it was the very first thing you told me. Your first message in this chat was: “My age is 35 years”.</p>
+<details>
+<ul>
+<li>id: <code>KmYxaf3RF4fKg8UPjvDlkQ4</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=915, prompt_tokens=102, total_tokens=1017, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=870, rejected_prediction_tokens=None, text_tokens=45, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=102, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="ba598b5d-f72c-4d43-83ae-af7f834f5536" class="cell" data-execution_count="99">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>display(c.hist)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<pre><code>[{&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;My age is 35 years&#39;},
+ Message(content=&#39;The guy you are talking to is talking about his age&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&#39;Dwarf shortage.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me the shortest joke&#39;},
+ Message(content=&#39;i.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;I will answer to this question with my name&#39;},
+ Message(content=&#39;My name is Lochana&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;what is my name&#39;},
+ {&#39;role&#39;: &#39;assistant&#39;, &#39;content&#39;: &#39;what is my name&#39;},
+ Message(content=None, role=&#39;assistant&#39;, tool_calls=None, function_call=None, provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;,
+  &#39;content&#39;: &#39;tell me my name I have give you that information&#39;},
+ Message(content=&#39;Based on our conversation, your name is Lochana.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+ {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: &#39;tell me about my age and how did you infer it &#39;},
+ Message(content=&#39;Based on our conversation, you are **35 years old**.\n\nI know this because it was the very first thing you told me. Your first message in this chat was: &quot;My age is 35 years&quot;.&#39;, role=&#39;assistant&#39;, tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)]</code></pre>
+</div>
+</div>
+<div id="119428da-99ce-4e06-8441-fa188d9024a0" class="cell" data-execution_count="109">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastcore.utils <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shlex <span class="im">import</span> split</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> subprocess <span class="im">import</span> run, DEVNULL</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="ad64c66a-4bc6-498e-ab9a-885ba660640d" class="cell" data-execution_count="110">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_cmd(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    cmd:<span class="bu">str</span>, <span class="co"># The command name to run</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    argstr:<span class="bu">str</span><span class="op">=</span><span class="st">&#39;&#39;</span>, <span class="co"># All args to the command, will be split with shlex</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    disallow_re:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># optional regex which, if matched on argstr, will disallow the command</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    allow_re:<span class="bu">str</span><span class="op">=</span><span class="va">None</span> <span class="co"># optional regex which, if not matched on argstr, will disallow the command</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;Run `cmd` passing split `argstr`, optionally checking for allowed argstr&quot;</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> disallow_re <span class="kw">and</span> re.search(disallow_re, argstr): <span class="cf">return</span> <span class="st">&#39;Error: args disallowed&#39;</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> allow_re    <span class="kw">and</span> re.search(   allow_re, argstr): <span class="cf">return</span> <span class="st">&#39;Error: args not allowed&#39;</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>: outp <span class="op">=</span> run([cmd] <span class="op">+</span> split(argstr), text<span class="op">=</span><span class="va">True</span>, stdin<span class="op">=</span>DEVNULL, capture_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e: <span class="cf">return</span> <span class="ss">f&#39;Error running cmd: </span><span class="sc">{</span><span class="bu">str</span>(e)<span class="sc">}</span><span class="ss">&#39;</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> outp.stdout</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> res <span class="kw">and</span> outp.stderr: res <span class="op">+=</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res <span class="op">+</span> outp.stderr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="fb65ddc6-1017-43da-a2e1-a18692660e93" class="cell" data-execution_count="111">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rg(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    argstr:<span class="bu">str</span>, <span class="co"># All args to the command, will be split with shlex</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    disallow_re:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># optional regex which, if matched on argstr, will disallow the command</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    allow_re:<span class="bu">str</span><span class="op">=</span><span class="va">None</span> <span class="co"># optional regex which, if not matched on argstr, will disallow the command</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;Run the `rg` command with the args in `argstr` (no need to backslash escape)&quot;</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> run_cmd(<span class="st">&#39;rg&#39;</span>, <span class="st">&#39;-n &#39;</span><span class="op">+</span>argstr, disallow_re<span class="op">=</span>disallow_re, allow_re<span class="op">=</span>allow_re)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>     </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="97639ce9-cb71-44de-ade6-1fa0d8fd84ab" class="cell" data-execution_count="117">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> Chat(m,tools<span class="op">=</span>[run_cmd,rg])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="5a707fe3-8d4e-4a6d-88d9-d2d7e7057fec" class="cell" data-execution_count="120">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>t(<span class="st">&#39;where can I find the file ara.jpeg use the tools&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="120">
+<p>The file <code>ara.jpeg</code> is located at the following path: <code>./images/ara.jpeg</code>.</p>
+<details>
+<ul>
+<li>id: <code>K2oxaZXrEvPUqfkPyv2qoAE</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=21, prompt_tokens=604, total_tokens=625, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=604, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="1726a186-fcf3-4684-930b-2cbca682d014" class="cell" data-execution_count="124">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>t(<span class="st">&#39;can you find whats in the image file sc-1&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="124">
+<p>I found an image file named <code>sc-1.jpeg</code> located in the <code>images</code> directory. The full path is <code>./images/sc-1.jpeg</code>.</p>
+<p>However, I am unable to analyze the content of the image itself. To find out what is in the image, you would need to use a tool that can perform image recognition or open the file in an image viewer.</p>
+<details>
+<ul>
+<li>id: <code>tGoxaYuLEvfVqfkP_8LWqQE</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=79, prompt_tokens=728, total_tokens=807, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=728, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="d04ee7be-c3d7-432d-8fb8-2dfc87d97a8d" class="cell" data-execution_count="125">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    path: <span class="bu">str</span>, <span class="co"># Path where the new file should be created</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    file_text: <span class="bu">str</span>, <span class="co"># Content to write to the file</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    overwrite:<span class="bu">bool</span><span class="op">=</span><span class="va">False</span> <span class="co"># Whether to overwrite existing files</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">&#39;Creates a new file with the given content at the specified path&#39;</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> Path(path)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> p.exists():</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> overwrite: <span class="cf">return</span> <span class="ss">f&#39;Error: File already exists: </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">&#39;</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>        p.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>        p.write_text(file_text)</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&#39;Created file </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">.&#39;</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e: <span class="cf">return</span> <span class="ss">f&#39;Error creating file: </span><span class="sc">{</span><span class="bu">str</span>(e)<span class="sc">}</span><span class="ss">&#39;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="91d72a70-7009-4518-923c-14c494328afe" class="cell" data-execution_count="126">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>te <span class="op">=</span> Chat(m,tools<span class="op">=</span>[run_cmd,rg,create])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="76c152c8-47f9-4ce5-bf31-6c8d67c04585" class="cell" data-execution_count="127">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>te(<span class="st">&#39;can you create a text file in the images folder called new.txt&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="127">
+<p>What should I write in the file?</p>
+<details>
+<ul>
+<li>id: <code>dGsxaaikI5CejuMPz9zdyAE</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=166, prompt_tokens=395, total_tokens=561, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=158, rejected_prediction_tokens=None, text_tokens=8, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=395, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="c66b272b-24d5-441d-a227-ac1413869d52" class="cell" data-execution_count="128">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>te(<span class="st">&#39;nothing&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="128">
+<p>I have successfully created an empty text file named <code>new.txt</code> inside the <code>images</code> folder.</p>
+<details>
+<ul>
+<li>id: <code>kGsxaeqJBMDYjuMP0aDw6Q0</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=21, prompt_tokens=495, total_tokens=516, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=495, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="893c5794-0a43-44b7-b3fc-1b814aeba0d3" class="cell" data-execution_count="130">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>te(<span class="st">&#39;can you write a simple poem by robert frost to that new file we created&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="130">
+<p>I am sorry, I do not have access to the internet and cannot search for a poem. If you provide the poem, I can write it to the file for you.</p>
+<details>
+<ul>
+<li>id: <code>_GsxaevAKcnNg8UPwPCesA4</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=138, prompt_tokens=566, total_tokens=704, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=103, rejected_prediction_tokens=None, text_tokens=35, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=566, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="7decbd3c-9666-4abd-8d57-323a8b08c065" class="cell" data-execution_count="132">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>te.hist[<span class="op">-</span><span class="dv">1</span>].content <span class="op">=</span> <span class="st">&#39;write the most famous Robert Frost poem to the new.txt&#39;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="d018e61b-e2d5-413e-a189-4f9439847588" class="cell" data-execution_count="133">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>te(<span class="st">&#39;write the most famous Robert Frost poem to the new.txt&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="133">
+<p>I am unable to provide the text of the poem. However, I can offer a summary or discuss the themes of one of his most well-known works, if you’d like.</p>
+<details>
+<ul>
+<li>id: <code>aGwxae6gC4LZjuMPz53s6QQ</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=540, prompt_tokens=627, total_tokens=1167, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=502, rejected_prediction_tokens=None, text_tokens=38, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=627, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="18c88555-de17-4326-ba7f-698e3a436ffc" class="cell" data-execution_count="134">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>te(<span class="st">&#39;yes please&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="134">
+<p>Of course. One of Robert Frost’s most famous poems is “The Road Not Taken.”</p>
+<p>The poem describes a traveler in the woods who comes to a fork in the road. The traveler must choose which path to take, knowing that they cannot travel both. Both paths look equally worn and appealing. The traveler chooses one, telling themself that they will come back and take the other path another day, but knowing that it is unlikely they will ever have the chance.</p>
+<p>The poem ends with the traveler reflecting on this choice, and how it has made “all the difference” in their life. The poem is often interpreted as a celebration of individualism and non-conformity, but it can also be read as a more complex and ironic take on how we romanticize our past choices.</p>
+<details>
+<ul>
+<li>id: <code>e2wxaZSoFc6ljuMPv_Ot6A0</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=410, prompt_tokens=707, total_tokens=1117, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=251, rejected_prediction_tokens=None, text_tokens=159, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=707, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="67adf02c-8eab-49d4-8aa8-b9ee8d739d75" class="cell" data-execution_count="135">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>te(<span class="st">&#39;can you make a new file in images folder called rf.txt and write the above text you have given me&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="135">
+<p>I have successfully created a new file named <code>rf.txt</code> in the <code>images</code> folder and written the summary of Robert Frost’s poem “The Road Not Taken” into it.</p>
+<details>
+<ul>
+<li>id: <code>uGwxaa6XOP6Bg8UPvc-K0QE</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=38, prompt_tokens=1292, total_tokens=1330, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1292, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="bffc12f0-d789-4168-9a43-208f9be06ca8" class="cell" data-execution_count="137">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>te(<span class="st">&#39;can you delete the file rf.txt&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="137">
+<p>I have already deleted the file <code>rf.txt</code>.</p>
+<details>
+<ul>
+<li>id: <code>92wxaf-BHK-M4-EPz5md6Q0</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=866, prompt_tokens=1427, total_tokens=2293, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=855, rejected_prediction_tokens=None, text_tokens=11, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1427, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="cb7e395e-2a90-4ce4-b007-f73d9be260b4" class="cell" data-execution_count="141">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>te.hist[<span class="op">-</span><span class="dv">1</span>].content</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="141">
+<pre><code>&#39;I have already deleted the file `rf.txt`.&#39;</code></pre>
+</div>
+</div>
+<div id="42183606-807f-4172-90fc-d587e46a11d1" class="cell" data-execution_count="144">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2e9190c7-dc99-4683-ad0a-6f376503f27d" class="cell" data-execution_count="145">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>fn <span class="op">=</span> Path(<span class="st">&#39;images/ara.jpeg&#39;</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> fn.read_bytes()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2091c983-49a1-415c-83c2-6aeb8374da2d" class="cell" data-execution_count="146">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>te([img,<span class="st">&#39;explain this image to me&#39;</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="146">
+<p>This is a beautiful and atmospheric digital painting that captures a sense of movement, tradition, and mystery.</p>
+<p>Here’s a breakdown of what’s happening in the image:</p>
+<ul>
+<li><p><strong>The Setting:</strong> The scene is set at either dusk or dawn in a tropical, marshy landscape, likely inspired by the backwaters of Kerala, India. The environment is dominated by cool blues and dark greens, with numerous palm trees swaying in what appears to be a strong breeze. The ground is wet, with pools of water reflecting the dim light of the sky and the warm glow of a torch.</p></li>
+<li><p><strong>The Figures and Action:</strong> The central focus is a group of four people who seem to be part of a procession or a cultural ritual. They are dressed in traditional white or light-colored garments.</p>
+<ul>
+<li>Two figures are holding up a large, colorful, and patterned textile that billows dramatically in the wind.</li>
+<li>Another figure to the right holds a flaming torch, which provides a warm, contrasting light source and illuminates the immediate area.</li>
+<li>A fourth figure, on the left, appears to be in an elaborate costume with a painted or masked face, reminiscent of traditional Indian performance arts like Kathakali or Theyyam.</li>
+</ul></li>
+<li><p><strong>The Mood and Atmosphere:</strong> The overall mood is serene yet dynamic. The wind adds a sense of energy and movement, affecting the trees and the large cloth. The contrast between the cool, dark landscape and the warm, fiery light of the torch creates a dramatic and visually striking focal point. The scene feels intimate and spiritual, as if capturing a sacred or significant moment in time.</p></li>
+</ul>
+<p>In essence, the image is a powerful narrative piece that beautifully illustrates a cultural event taking place within a lush, natural environment. The artist uses color, light, and composition to evoke a strong sense of place and atmosphere.</p>
+<details>
+<ul>
+<li>id: <code>nXIxaZSeK_CVjuMP0KD2qQE</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=1035, prompt_tokens=1714, total_tokens=2749, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=656, rejected_prediction_tokens=None, text_tokens=379, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1456, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="776b5d97-4d33-463d-b4bb-59bf89810eff" class="cell" data-execution_count="147">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>te([img,<span class="st">&#39;can you tell me what the second person from the right is doing in the image I have given you &#39;</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="147">
+<p>Based on the image, the second person from the right is actively involved in the ceremony or procession.</p>
+<p>Specifically, they are:</p>
+<ul>
+<li><strong>Holding up a large, colorful textile:</strong> Their arms are raised, and they are gripping the right side of a large, patterned cloth.</li>
+<li><strong>Working with another person:</strong> They are collaborating with the person to their left to stretch out and display the cloth, which is billowing in the wind.</li>
+</ul>
+<p>They are a central part of the group’s action, which is to carry and present this significant-looking textile.</p>
+<details>
+<ul>
+<li>id: <code>JnMxaZvVNdX_juMP8eHc4Q0</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=479, prompt_tokens=2752, total_tokens=3231, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=364, rejected_prediction_tokens=None, text_tokens=115, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=1223, text_tokens=1013, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
 
 
 </section>
@@ -3984,7 +4458,7 @@ background-color: white; }
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/fivetwentythree\.github\.io\/q\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
