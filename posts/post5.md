@@ -103,4 +103,10 @@ recontextualizes decades of the characters’ lives. It earns every second
 of its runtime. Vibe: Melancholy and romantic, but with a core of steel.
 A patient, character-driven mystery. Content/mood caution: Some brief
 but shocking violence. It’s a methodical slow-burn, not a fast-paced
-thriller. ::: {.column-margin} ![](images/im2.jpeg) :::
+thriller.
+
+<div class="column-margin">
+
+![](images/im2.jpeg)
+
+</div>
