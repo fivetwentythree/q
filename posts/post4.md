@@ -854,3 +854,37 @@ Let’s start there, and then we’ll figure out the other two.
   `Usage(completion_tokens=422, prompt_tokens=5950, total_tokens=6372, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=318, rejected_prediction_tokens=None, text_tokens=104, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=4034, text_tokens=1916, image_tokens=None))`
 
 </details>
+
+``` python
+t('Are you still here or have you gone?')
+```
+
+I am here and ready to help you master Python!
+
+To make sure I tailor our lessons perfectly for you, let’s start with a
+quick question:
+
+**What is your current experience level with programming?** (Absolute
+Beginner, Some Experience, or converting from another language?)
+
+<details>
+
+- id: `pVozaZrvA7DRjuMP_J6n8A0`
+- model: `gemini-2.5-pro`
+- finish_reason: `stop`
+- usage:
+  `Usage(completion_tokens=484, prompt_tokens=655, total_tokens=1139, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=427, rejected_prediction_tokens=None, text_tokens=57, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=655, image_tokens=None))`
+
+</details>
+
+``` python
+Markdown(t.hist[1].content)
+```
+
+I am here and ready to help you master Python!
+
+To make sure I tailor our lessons perfectly for you, let’s start with a
+quick question:
+
+**What is your current experience level with programming?** (Absolute
+Beginner, Some Experience, or converting from another language?)

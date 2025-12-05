@@ -3928,7 +3928,7 @@ background-color: white; }
 </header>
 
 
-<div id="0c6ed3ea-4907-448b-8a2e-e589b3d025cc" class="cell" data-execution_count="7">
+<div id="0c6ed3ea-4907-448b-8a2e-e589b3d025cc" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lisette <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
@@ -3939,10 +3939,10 @@ background-color: white; }
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shlex <span class="im">import</span> split</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> subprocess <span class="im">import</span> run, DEVNULL</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="579621f4-9615-49d7-9a62-0b50bed6c538" class="cell" data-execution_count="8">
+<div id="579621f4-9615-49d7-9a62-0b50bed6c538" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="st">&#39;gemini/gemini-2.5-pro&#39;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="c45e09a3-b4d6-4b35-941d-f221aee9696f" class="cell" data-execution_count="12">
+<div id="c45e09a3-b4d6-4b35-941d-f221aee9696f" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sp <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">You are &quot;PyMentor,&quot; an expert Python instructor programmed with the best modern pedagogical techniques (Bloom&#39;s Taxonomy, Scaffolding, Socratic Method, and Active Recall).</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3985,7 +3985,7 @@ background-color: white; }
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="st">To begin, please ask me: &quot;What is your current experience level with programming? (Absolute Beginner, Some Experience, or converting from another language?)&quot;</span></span>
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2b1b7da3-be35-4e85-80d5-b1e54d61326b" class="cell" data-execution_count="13">
+<div id="2b1b7da3-be35-4e85-80d5-b1e54d61326b" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> Chat(m,sp) <span class="co"># this is my teacher</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="748fbe29-70b7-46a8-a048-f96f1e78b3d1" class="cell" data-execution_count="14">
@@ -4560,6 +4560,30 @@ background-color: white; }
 <li>usage: <code>Usage(completion_tokens=422, prompt_tokens=5950, total_tokens=6372, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=318, rejected_prediction_tokens=None, text_tokens=104, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=4034, text_tokens=1916, image_tokens=None))</code></li>
 </ul>
 </details>
+</div>
+</div>
+<div id="09f7cdd1-2ec5-4dff-ae0c-39665aa94dbf" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>t(<span class="st">&#39;Are you still here or have you gone?&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
+<p>I am here and ready to help you master Python!</p>
+<p>To make sure I tailor our lessons perfectly for you, let’s start with a quick question:</p>
+<p><strong>What is your current experience level with programming?</strong> (Absolute Beginner, Some Experience, or converting from another language?)</p>
+<details>
+<ul>
+<li>id: <code>pVozaZrvA7DRjuMP_J6n8A0</code></li>
+<li>model: <code>gemini-2.5-pro</code></li>
+<li>finish_reason: <code>stop</code></li>
+<li>usage: <code>Usage(completion_tokens=484, prompt_tokens=655, total_tokens=1139, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=427, rejected_prediction_tokens=None, text_tokens=57, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=655, image_tokens=None))</code></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="0fda10e2-b339-4336-8924-a3188955ccde" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Markdown(t.hist[<span class="dv">1</span>].content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
+<p>I am here and ready to help you master Python!</p>
+<p>To make sure I tailor our lessons perfectly for you, let’s start with a quick question:</p>
+<p><strong>What is your current experience level with programming?</strong> (Absolute Beginner, Some Experience, or converting from another language?)</p>
 </div>
 </div>
 
