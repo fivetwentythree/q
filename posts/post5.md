@@ -142,6 +142,9 @@ what is the url mentioned in this file?
  '''
 ```
 
+Line 2  
+the file object variable goes here
+
 ``` python
 r = another(mk_msg(message,cache=True))
 ```
@@ -194,21 +197,3 @@ r.usage
 ```
 
     Usage(completion_tokens=681, prompt_tokens=113, total_tokens=794, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=650, rejected_prediction_tokens=None, text_tokens=31, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=113, image_tokens=None))
-
-``` python
-r.use
-```
-
-    AttributeError: 'ModelResponse' object has no attribute 'use'
-    [31m---------------------------------------------------------------------------[39m
-    [31mAttributeError[39m                            Traceback (most recent call last)
-    [36mCell[39m[36m [39m[32mIn[20][39m[32m, line 1[39m
-    [32m----> [39m[32m1[39m [43mr[49m[43m.[49m[43muse[49m
-
-    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/pydantic/main.py:1026[39m, in [36mBaseModel.__getattr__[39m[34m(self, item)[39m
-    [32m   1023[39m     [38;5;28;01mreturn[39;00m [38;5;28msuper[39m().[34m__getattribute__[39m(item)  [38;5;66;03m# Raises AttributeError if appropriate[39;00m
-    [32m   1024[39m [38;5;28;01melse[39;00m:
-    [32m   1025[39m     [38;5;66;03m# this is the current error[39;00m
-    [32m-> [39m[32m1026[39m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([33mf[39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mtype[39m([38;5;28mself[39m).[34m__name__[39m[38;5;132;01m!r}[39;00m[33m object has no attribute [39m[38;5;132;01m{[39;00mitem[38;5;132;01m!r}[39;00m[33m'[39m)
-
-    [31mAttributeError[39m: 'ModelResponse' object has no attribute 'use'
