@@ -15,6 +15,20 @@ from subprocess import run, DEVNULL
 ```
 
 ``` python
+!uv pip install pathlib
+```
+
+    Using Python 3.12.8 environment at: /Users/lochana-mbp/q/.venv
+    Resolved 1 package in 785ms                                          
+    Prepared 1 package in 98ms                                               
+    Installed 1 package in 5ms                                  
+     + pathlib==1.0.1
+
+``` python
+from pathlib import Path
+```
+
+``` python
 m = "gemini/gemini-2.5-pro"
 ```
 
@@ -100,13 +114,101 @@ epic about memory, love, and the long shadow of injustice, disguised as
 a cold case investigation. The final reveal is less a clever plot device
 and more of an emotional and philosophical gut punch that
 recontextualizes decades of the characters’ lives. It earns every second
-of its runtime. Vibe: Melancholy and romantic, but with a core of steel.
-A patient, character-driven mystery. Content/mood caution: Some brief
-but shocking violence. It’s a methodical slow-burn, not a fast-paced
-thriller.
+of its runtime.
 
 <div class="column-margin">
 
 ![](images/im2.jpeg)
 
 </div>
+
+Vibe: Melancholy and romantic, but with a core of steel. A patient,
+character-driven mystery. Content/mood caution: Some brief but shocking
+violence. It’s a methodical slow-burn, not a fast-paced thriller.
+
+``` python
+another = Chat(m,sp="be a helpful and concise assistant")
+```
+
+``` python
+text_file = Path('images/new.txt').read_text()
+```
+
+``` python
+message = f'''<new.txt>
+{text_file}
+</new.txt>
+what is the url mentioned in this file?
+ '''
+```
+
+``` python
+r = another(mk_msg(message,cache=True))
+```
+
+``` python
+r
+```
+
+Based on the file, the URL is: `https://fivetwentythree.github.io/q`
+
+<details>
+
+- id: `b4AzaZLUFf6Bg8UPvc-K0QE`
+- model: `gemini-2.5-pro`
+- finish_reason: `stop`
+- usage:
+  `Usage(completion_tokens=378, prompt_tokens=78, total_tokens=456, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=354, rejected_prediction_tokens=None, text_tokens=24, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=78, image_tokens=None))`
+
+</details>
+
+``` python
+print(r.usage)
+```
+
+    Usage(completion_tokens=378, prompt_tokens=78, total_tokens=456, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=354, rejected_prediction_tokens=None, text_tokens=24, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=78, image_tokens=None))
+
+``` python
+r = another('what is use of the the text file provided')
+```
+
+``` python
+r
+```
+
+According to the text itself, the file is a **test example** created to
+see how well a “caching function in lisette library” works.
+
+<details>
+
+- id: `84Azab64A9nZjuMPqeWfkQE`
+- model: `gemini-2.5-pro`
+- finish_reason: `stop`
+- usage:
+  `Usage(completion_tokens=681, prompt_tokens=113, total_tokens=794, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=650, rejected_prediction_tokens=None, text_tokens=31, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=113, image_tokens=None))`
+
+</details>
+
+``` python
+r.usage
+```
+
+    Usage(completion_tokens=681, prompt_tokens=113, total_tokens=794, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=650, rejected_prediction_tokens=None, text_tokens=31, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=113, image_tokens=None))
+
+``` python
+r.use
+```
+
+    AttributeError: 'ModelResponse' object has no attribute 'use'
+    [31m---------------------------------------------------------------------------[39m
+    [31mAttributeError[39m                            Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[20][39m[32m, line 1[39m
+    [32m----> [39m[32m1[39m [43mr[49m[43m.[49m[43muse[49m
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/pydantic/main.py:1026[39m, in [36mBaseModel.__getattr__[39m[34m(self, item)[39m
+    [32m   1023[39m     [38;5;28;01mreturn[39;00m [38;5;28msuper[39m().[34m__getattribute__[39m(item)  [38;5;66;03m# Raises AttributeError if appropriate[39;00m
+    [32m   1024[39m [38;5;28;01melse[39;00m:
+    [32m   1025[39m     [38;5;66;03m# this is the current error[39;00m
+    [32m-> [39m[32m1026[39m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([33mf[39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mtype[39m([38;5;28mself[39m).[34m__name__[39m[38;5;132;01m!r}[39;00m[33m object has no attribute [39m[38;5;132;01m{[39;00mitem[38;5;132;01m!r}[39;00m[33m'[39m)
+
+    [31mAttributeError[39m: 'ModelResponse' object has no attribute 'use'
