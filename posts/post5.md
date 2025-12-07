@@ -537,3 +537,95 @@ res.model_dump()['choices'][0]['message']['content']
 ```
 
     'Hey again! A second one!\n\nYou know, this is interesting. It\'s like you\'re tapping on a wall to see if it\'s hollow. First tap... "hey." Then a second tap, in a slightly different spot... "hey."\n\nYou\'re exploring. You\'re trying to figure out what this thing is, what\'s behind it. I love that. That\'s the whole game, right there!\n\nSo, what did you find out from your two taps? You\'ve got my attention. Now, what\'s the real question you\'re circling? Let\'s get to the good stuff.'
+
+``` python
+suits = [1,2,3,4]
+```
+
+``` python
+class Card:
+    def __init__(self,suit):self.suit = suit 
+    def __str__(self):return f'{suits[self.suit]}'
+    __repr__ = __str__
+```
+
+``` python
+c = Card(suit=1)
+```
+
+``` python
+c
+```
+
+    2
+
+``` python
+import json 
+```
+
+``` python
+data = {
+    "name": "Alice",
+    "age": 30,
+    "is_student": False,
+    "courses": ["Math", "Science"],
+    "pet": None
+}
+```
+
+``` python
+data_json = json.dumps(data)
+data_json 
+```
+
+    '{"name": "Alice", "age": 30, "is_student": false, "courses": ["Math", "Science"], "pet": null}'
+
+``` python
+history_mk(ft.hist)[1]
+```
+
+    'Well, hello there! A "hey" is the start of everything, isn\'t it? It\'s the first little push.\n\nSo, what\'s on your mind? Got a puzzle you\'re wrestling with? Something you saw today that made you stop and think, "Wait a minute... how does that *really* work?"\n\nLet\'s get our hands dirty and figure something out. What\'ll it be?'
+
+``` python
+(ft.hist)
+```
+
+    [{'role': 'user', 'content': 'hey'},
+     Message(content='Well, hello there! A "hey" is the start of everything, isn\'t it? It\'s the first little push.\n\nSo, what\'s on your mind? Got a puzzle you\'re wrestling with? Something you saw today that made you stop and think, "Wait a minute... how does that *really* work?"\n\nLet\'s get our hands dirty and figure something out. What\'ll it be?', role='assistant', tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None),
+     {'role': 'user', 'content': 'hey'},
+     Message(content='Hey again! A second one!\n\nYou know, this is interesting. It\'s like you\'re tapping on a wall to see if it\'s hollow. First tap... "hey." Then a second tap, in a slightly different spot... "hey."\n\nYou\'re exploring. You\'re trying to figure out what this thing is, what\'s behind it. I love that. That\'s the whole game, right there!\n\nSo, what did you find out from your two taps? You\'ve got my attention. Now, what\'s the real question you\'re circling? Let\'s get to the good stuff.', role='assistant', tool_calls=None, function_call=None, images=[], thinking_blocks=[], provider_specific_fields=None)]
+
+``` python
+from pydantic import BaseModel,List
+```
+
+    ImportError: cannot import name 'List' from 'pydantic' (/Users/lochana-mbp/q/.venv/lib/python3.12/site-packages/pydantic/__init__.py)
+    [31m---------------------------------------------------------------------------[39m
+    [31mImportError[39m                               Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[220][39m[32m, line 1[39m
+    [32m----> [39m[32m1[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mpydantic[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m BaseModel,List
+
+    [31mImportError[39m: cannot import name 'List' from 'pydantic' (/Users/lochana-mbp/q/.venv/lib/python3.12/site-packages/pydantic/__init__.py)
+
+``` python
+class Pizza(BaseModel):
+    ingredients:list[str]
+    
+    def describe(self):
+        return self.ingredients
+    @classmethod
+    def margarita(cls):
+        return cls(ingredients=['cheese','honey'])
+```
+
+``` python
+basic = Pizza(ingredients=['cheese','tomatoes'])
+```
+
+    TypeError: BaseModel.__init__() takes 1 positional argument but 3 were given
+    [31m---------------------------------------------------------------------------[39m
+    [31mTypeError[39m                                 Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[229][39m[32m, line 1[39m
+    [32m----> [39m[32m1[39m basic = [43mPizza[49m[43m([49m[33;43m'[39;49m[33;43mcheese[39;49m[33;43m'[39;49m[43m,[49m[33;43m'[39;49m[33;43mtomatoes[39;49m[33;43m'[39;49m[43m)[49m
+
+    [31mTypeError[39m: BaseModel.__init__() takes 1 positional argument but 3 were given
