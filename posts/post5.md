@@ -629,3 +629,651 @@ basic = Pizza(ingredients=['cheese','tomatoes'])
     [32m----> [39m[32m1[39m basic = [43mPizza[49m[43m([49m[33;43m'[39;49m[33;43mcheese[39;49m[33;43m'[39;49m[43m,[49m[33;43m'[39;49m[33;43mtomatoes[39;49m[33;43m'[39;49m[43m)[49m
 
     [31mTypeError[39m: BaseModel.__init__() takes 1 positional argument but 3 were given
+
+``` python
+import collections
+```
+
+``` python
+Card = collections.namedtuple('Card',['rank','suit'])
+```
+
+``` python
+class FrenchDeck:
+    ranks = [str(r) for r in range(2,11)] + list('JQKA')
+    suits = 'Spades Diamond Hearts Clubs'.split()
+    def __init__(self):
+        self._cards = [Card(rank,suit) for suit in self.suits
+                                       for rank in self.ranks]
+    def __len__(self):
+        return len(self._cards)
+    def __getitem__(self,position):
+        return self._cards[position]
+    def __repr__(self):
+        return f'FrenchDeck(cards={len(self)})'
+```
+
+``` python
+deck = FrenchDeck()
+len(deck)
+```
+
+    52
+
+``` python
+deck
+```
+
+    FrenchDeck(cards=52)
+
+``` python
+class Vector:
+    def __init__(self,x,y):self.x, self.y = x ,y 
+
+    def __repr__(self):return f'Vector({self.x}, {self.y})'
+    def __add__(self,other): return Vector(self.x + other.x, self.y + other.y)
+    def __mul__(self,scaler): return Vector(self.x * scaler, self.y * scaler)
+    def __bool__(self):return bool(abs(self))
+    def __sub__(self,other): return Vector(self.x - other.x , self.y - other.y)
+```
+
+``` python
+vec_1 = Vector(2,4)
+vec_2 = Vector(3,5)
+vec_1 + vec_2
+```
+
+    Vector(5, 9)
+
+``` python
+vec_3 = vec_1 * 3
+vec_3
+```
+
+    Vector(6, 12)
+
+``` python
+num_1 = [x * x for x in range(10) if not x % 2]
+```
+
+``` python
+num_1
+```
+
+    [0, 4, 16, 36, 64]
+
+``` python
+data = ('John Doe', 45, 'Python Developer', 'Google')
+name, _, job, *other = data 
+```
+
+``` python
+name, job
+```
+
+    ('John Doe', 'Python Developer')
+
+``` python
+other, _
+```
+
+    (['Google'], 45)
+
+``` python
+votes = [
+    ('red', 1),
+    ('blue', 1),
+    ('red', 2),
+    ('blue', 1),
+    ('green', 1)
+]
+```
+
+``` python
+def color_counter(dictionary):
+    colors = {}
+    for color,number in votes:colors[color 
+```
+
+``` python
+colors = {}
+for color,number in votes:
+    if color in colors:
+        colors[color] += number
+    else:
+        colors[color] = 1
+```
+
+``` python
+def color_votes(lst):
+    colors = {}
+    for color,number in votes:
+        if color in colors:
+            colors[color] += number
+        else:
+            colors[color] = 1
+    return colors        
+    
+```
+
+``` python
+color_votes(votes)
+```
+
+    {'red': 3, 'blue': 2, 'green': 1}
+
+``` python
+from collections import defaultdict
+color_count = defaultdict(int)
+for color,count in votes:
+    color_count[color] += count
+print(color_count)    # 
+```
+
+    defaultdict(<class 'int'>, {'red': 3, 'blue': 2, 'green': 1})
+
+### you always need to remove the if/else statements since these are the places where the bugs hide
+
+``` python
+with open('msg.txt','r',encoding='utf-8') as m:
+    text_str = m.read()
+upper_str = text_str.upper()
+
+with open('upper_text.txt','w',encoding='utf-8') as w:
+    w.write(upper_str)
+```
+
+``` python
+class BingoCage:
+    def __init__(self,items):self._items = items
+    def pick(self):
+        return self._items.pop()
+    def __call__(self):
+        return self.pick()
+    def __repr__(self): return f'BingoCard({self._items})'
+```
+
+``` python
+users = [
+    {'name': 'Anna', 'id': 104},
+    {'name': 'Zack', 'id': 101},
+    {'name': 'Bob',  'id': 103},
+]
+```
+
+``` python
+sorted(users,key=lambda id: )
+```
+
+    NameError: name 'sort' is not defined
+    [31m---------------------------------------------------------------------------[39m
+    [31mNameError[39m                                 Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[49][39m[32m, line 1[39m
+    [32m----> [39m[32m1[39m [38;5;28msorted[39m(users,key=[43msort[49m)
+
+    [31mNameError[39m: name 'sort' is not defined
+
+``` python
+class SafeBus:
+    def __init__(self,passengers=None):
+        if passengers is None:
+            self.passengers = []
+        else:
+            self.passengers = list(passengers)
+    def __repr__(self):
+        return f'SafeBus(passengers={self.passengers})'
+    def __len__(self):
+        return len(self.passengers)
+```
+
+``` python
+bus1 = SafeBus(['Alice','Bob'])
+```
+
+``` python
+bus1
+```
+
+    SafeBus(passengers=['Alice', 'Bob'])
+
+``` python
+len(bus1)
+```
+
+    2
+
+``` python
+class Product:
+    def __init__(self,price):self.price = price 
+    @property
+    def price(self):
+        return self._price
+    @price.setter
+    def price(self,value):
+        if value < 0:
+            raise ValueError('Cannot set Negaitve Prices!!')
+        else: self._price = value    
+
+    @classmethod
+    def from_string(cls,text):
+        parsed_value = int(text)
+        return cls(parsed_value)
+    def __repr__(self):
+        return f'Product(price={self.price})'
+```
+
+``` python
+obj1 = Product(23)
+obj2 = Product(5)
+print(obj1,obj2)
+```
+
+    Product(price=23) Product(price=5)
+
+``` python
+obj2.from_string('10')
+```
+
+    Product(price=10)
+
+``` python
+class User:
+    def __init__(self,name,age):self.name, self.age = name,age 
+    @property
+    def age(self):return self._age
+        
+    @age.setter   
+    def age(self,years):
+        if not hasattr(self,'_age'):
+            self._age = years
+        if years < self._age:
+            raise ValueError('Age cannot go backwards')
+        else: self._age = years    
+    def __repr__(self):
+        return f'User({self.name},{self._age})'
+    @classmethod
+    def from_csv(cls,csv):
+        name,age = csv.split(',')
+        return cls(name,int(age))
+        
+```
+
+``` python
+user1 = User('Loki', 35)
+```
+
+``` python
+user1
+```
+
+    User(Loki,35)
+
+``` python
+user2 = User('Loki',10)
+```
+
+``` python
+user2
+```
+
+    User(Loki,10)
+
+``` python
+user2.from_csv('loki,12')
+```
+
+    User(loki,12)
+
+``` python
+class Ticket:
+    VALID_STATUSES = {'OPEN','CLOSED','IN PROGRESS'}
+    #VALID_RESOLUTION_CODES = {'FIXED','WONT FIX','DUPLICATE',None}
+    
+    def __init__(self,title,description,id=0):
+        self.title = title
+        self.description = description
+        self.id = id 
+        self.assignee = 'Alice'
+        self.priority = 'High'
+        self._status = 'OPEN'
+        self._resolution_code = None
+
+    @property
+    def status(self):
+        return self._status
+    @status.setter
+    def status(self,new_status):
+        if str(new_status) not in self.VALID_STATUSES:
+            raise ValueError(f'{new_status} has to be in the {self.VALID_STATUSES}')
+        self._status = new_status    
+
+
+    @property
+    def resolution_code(self):
+        return self._resolution_code
+
+    @resolution_code.setter
+    def resolution_code(self,new_resolution):
+        if not self._status == 'CLOSED':
+            raise ValueError(f'You are not permitted to do this operation')
+        self._resolution_code = str(new_resolution)
+        
+        
+
+    def assign(self,name):
+        self.assignee = name
+        
+    def __repr__(self):
+        return f'Title={self.title},Description={self.description},id={self.id},Priority={self.priority},Status={self.status}'
+
+    def __eq__(self,other):
+        self.id == other.id 
+```
+
+``` python
+task1 = Ticket('First Issue', 'This is the first issue')
+```
+
+``` python
+task1.status
+```
+
+    'OPEN'
+
+``` python
+task1.status = 'CLOSED'
+```
+
+``` python
+task1
+```
+
+    Title=First Issue,Description=This is the first issue,id=0,Priority=High,Status=CLOSED
+
+``` python
+task1.resoluton_code = "Fixed" 
+```
+
+``` python
+task1.resoluton_code
+```
+
+    'Fixed'
+
+``` python
+from abc import ABC,abstractmethod
+
+class NewTicket(ABC):
+    def __init__(self,title,description):
+        self.title = title
+        self.description = description
+        self.id = id 
+        self.assignee = 'Alice'
+        self.priority = 'High'
+        self._status = 'OPEN'
+        self._resolution_code = None
+        self.comments = []
+        self.open_tickets = 0
+
+    @abstractmethod
+    def get_priority_score(self):
+        pass
+        
+    @classmethod
+    def bulk_tickets(cls,lst_of_titles):
+        return[cls(title,description='Auto Generated') for title in lst_of_titles]
+        
+
+    @classmethod
+    def close_ticket(cls):
+        if not cls.open_tickets == 0:
+            cls.open_tickets -= 1
+    def add_comment(self,comment_obj):
+        if not isinstance(comment_obj,Comment):
+            raise ValueError('comment has to be a Comment Object')
+            self.comments.append(comment_obj)
+            print(f'{comment_obj.author.username}:{comment_obj.text}')
+        
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}(title={self.title})'
+    def assign_to(self,user_obj):
+        if not isinstance(user_obj,User):
+            raise ValueError('Assignee has to be an object')
+        self.assignee = user_obj
+        print(f'Standard Ticket:{self.title} is now assigned to {self.assignee}')
+
+        self.assignee.notify(f'You have beem assigned:{self.title}')
+
+    @classmethod
+    def create_from_string(cls,dt_string):
+        parsed_data = dt_string.split('|')
+        title = parsed_data[0].strip()
+        desc = parsed_data[1].strip()
+        return cls(title,desc)
+
+class BugReport(NewTicket):
+    def __init__(self,title,description,os,browser):
+        super().__init__(title,description)    
+        self.os = os 
+        self.browser = browser
+    def assign_to(self,user):
+        print(f'Bug Report Ticket:Now assigned to {user}')
+        super().assign_to(user) 
+    def get_priority_score(self):
+        return 100
+    
+           
+
+class FeatureRequest(NewTicket):
+    def __init__(self,title,description,business_value):
+        super().__init__(title,description)
+        self.business_value = business_value
+
+    def get_priority_score(self):
+        pass
+
+
+class User:
+    def __init__(self,username, email,role='Dev'):
+        self.username = username
+        self.email = email
+        self.role = role
+
+    def __str__(self):
+        return f'{self.username}:{self.role}'
+    def notify(self,message):
+        print (f'Sending a message to:{self.username}:{message}')
+
+class Comment:
+    def __init__(self,text,author):
+        self.text = text 
+        self.author = author
+    def __str__(self):
+        return f'{self.author.username}:{self.text}'
+        
+```
+
+``` python
+t5 = FeatureRequest('Test1',description='testing ABC',business_value=23)
+```
+
+``` python
+import numpy
+```
+
+    ModuleNotFoundError: No module named 'numpy'
+    [31m---------------------------------------------------------------------------[39m
+    [31mModuleNotFoundError[39m                       Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[318][39m[32m, line 1[39m
+    [32m----> [39m[32m1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m
+
+    [31mModuleNotFoundError[39m: No module named 'numpy'
+
+``` python
+!uv pip install numpy
+```
+
+    Using Python 3.12.8 environment at: /Users/lochana-mbp/q/.venv
+    Resolved 1 package in 368ms                                          
+    Installed 1 package in 43ms                                 
+     + numpy==2.3.5
+
+``` python
+import numpy as np
+```
+
+``` python
+nice_array = [1,2,3]
+nice_np_array = np.array(nice_array)
+```
+
+``` python
+new_array = nice_np_array * 2
+new_array
+```
+
+    array([2, 4, 6])
+
+``` python
+[x*2 for x in nice_array]
+```
+
+    [2, 4, 6]
+
+``` python
+t = nice_np_array.shape
+type(t)
+```
+
+    tuple
+
+``` python
+!uv pip install matplotlib
+```
+
+    Using Python 3.12.8 environment at: /Users/lochana-mbp/q/.venv
+    Resolved 11 packages in 734ms                                        
+    Prepared 2 packages in 2.47s                                             
+    Installed 5 packages in 21ms                                
+     + contourpy==1.3.3
+     + cycler==0.12.1
+     + fonttools==4.61.0
+     + kiwisolver==1.4.9
+     + matplotlib==3.10.8
+
+``` python
+%matplotlib inline 
+import matplotlib.pyplot as plt
+```
+
+``` python
+import numpy as np
+random_image = np.random.rand(500,500)
+plt.imshow(random_image)
+```
+
+![](post5_files/figure-commonmark/cell-107-output-1.png)
+
+``` python
+!uv pip install scikit-learn
+```
+
+    Using Python 3.12.8 environment at: /Users/lochana-mbp/q/.venv
+    Resolved 5 packages in 592ms                                         
+    Prepared 2 packages in 6.67s                                             
+    Installed 4 packages in 42ms                                
+     + joblib==1.5.2
+     + scikit-learn==1.8.0
+     + scipy==1.16.3
+     + threadpoolctl==3.6.0
+
+``` python
+!uv pip install scikit-image
+```
+
+    Using Python 3.12.8 environment at: /Users/lochana-mbp/q/.venv
+    Resolved 9 packages in 614ms                                         
+    Prepared 4 packages in 3.72s                                             
+    Installed 5 packages in 30ms                                
+     + imageio==2.37.2
+     + lazy-loader==0.4
+     + networkx==3.6.1
+     + scikit-image==0.25.2
+     + tifffile==2025.10.16
+
+``` python
+from skimage import io
+image_link = ('posts/images/ara.jpeg')
+image = io.imread(image_link)
+```
+
+    FileNotFoundError: No such file: '/Users/lochana-mbp/q/blog/posts/posts/images/ara.jpeg'
+    [31m---------------------------------------------------------------------------[39m
+    [31mFileNotFoundError[39m                         Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[9][39m[32m, line 3[39m
+    [32m      1[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mskimage[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m io
+    [32m      2[39m image_link = ([33m'[39m[33mposts/images/ara.jpeg[39m[33m'[39m)
+    [32m----> [39m[32m3[39m image = [43mio[49m[43m.[49m[43mimread[49m[43m([49m[43mimage_link[49m[43m)[49m
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/skimage/_shared/utils.py:328[39m, in [36mdeprecate_parameter.__call__.<locals>.fixed_func[39m[34m(*args, **kwargs)[39m
+    [32m    324[39m     [38;5;28;01melif[39;00m [38;5;28mself[39m.new_name [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+    [32m    325[39m         [38;5;66;03m# Assign old value to new one[39;00m
+    [32m    326[39m         kwargs[[38;5;28mself[39m.new_name] = deprecated_value
+    [32m--> [39m[32m328[39m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/skimage/io/_io.py:82[39m, in [36mimread[39m[34m(fname, as_gray, plugin, **plugin_args)[39m
+    [32m     79[39m         plugin = [33m'[39m[33mtifffile[39m[33m'[39m
+    [32m     81[39m [38;5;28;01mwith[39;00m file_or_url_context(fname) [38;5;28;01mas[39;00m fname, _hide_plugin_deprecation_warnings():
+    [32m---> [39m[32m82[39m     img = [43mcall_plugin[49m[43m([49m[33;43m'[39;49m[33;43mimread[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[43mfname[49m[43m,[49m[43m [49m[43mplugin[49m[43m=[49m[43mplugin[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mplugin_args[49m[43m)[49m
+    [32m     84[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mhasattr[39m(img, [33m'[39m[33mndim[39m[33m'[39m):
+    [32m     85[39m     [38;5;28;01mreturn[39;00m img
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/skimage/_shared/utils.py:538[39m, in [36mdeprecate_func.__call__.<locals>.wrapped[39m[34m(*args, **kwargs)[39m
+    [32m    536[39m stacklevel = [32m1[39m + [38;5;28mself[39m.get_stack_length(func) - stack_rank
+    [32m    537[39m warnings.warn(message, category=[38;5;167;01mFutureWarning[39;00m, stacklevel=stacklevel)
+    [32m--> [39m[32m538[39m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/skimage/io/manage_plugins.py:254[39m, in [36mcall_plugin[39m[34m(kind, *args, **kwargs)[39m
+    [32m    251[39m     [38;5;28;01mexcept[39;00m [38;5;167;01mIndexError[39;00m:
+    [32m    252[39m         [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33mf[39m[33m'[39m[33mCould not find the plugin [39m[33m"[39m[38;5;132;01m{[39;00mplugin[38;5;132;01m}[39;00m[33m"[39m[33m for [39m[38;5;132;01m{[39;00mkind[38;5;132;01m}[39;00m[33m.[39m[33m'[39m)
+    [32m--> [39m[32m254[39m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/skimage/io/_plugins/imageio_plugin.py:11[39m, in [36mimread[39m[34m(*args, **kwargs)[39m
+    [32m      9[39m [38;5;129m@wraps[39m(imageio_imread)
+    [32m     10[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mimread[39m(*args, **kwargs):
+    [32m---> [39m[32m11[39m     out = np.asarray([43mimageio_imread[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m)
+    [32m     12[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m out.flags[[33m'[39m[33mWRITEABLE[39m[33m'[39m]:
+    [32m     13[39m         out = out.copy()
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/imageio/v3.py:53[39m, in [36mimread[39m[34m(uri, index, plugin, extension, format_hint, **kwargs)[39m
+    [32m     50[39m [38;5;28;01mif[39;00m index [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+    [32m     51[39m     call_kwargs[[33m"[39m[33mindex[39m[33m"[39m] = index
+    [32m---> [39m[32m53[39m [38;5;28;01mwith[39;00m [43mimopen[49m[43m([49m[43muri[49m[43m,[49m[43m [49m[33;43m"[39;49m[33;43mr[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mplugin_kwargs[49m[43m)[49m [38;5;28;01mas[39;00m img_file:
+    [32m     54[39m     [38;5;28;01mreturn[39;00m np.asarray(img_file.read(**call_kwargs))
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/imageio/core/imopen.py:113[39m, in [36mimopen[39m[34m(uri, io_mode, plugin, extension, format_hint, legacy_mode, **kwargs)[39m
+    [32m    111[39m     request.format_hint = format_hint
+    [32m    112[39m [38;5;28;01melse[39;00m:
+    [32m--> [39m[32m113[39m     request = [43mRequest[49m[43m([49m[43muri[49m[43m,[49m[43m [49m[43mio_mode[49m[43m,[49m[43m [49m[43mformat_hint[49m[43m=[49m[43mformat_hint[49m[43m,[49m[43m [49m[43mextension[49m[43m=[49m[43mextension[49m[43m)[49m
+    [32m    115[39m source = [33m"[39m[33m<bytes>[39m[33m"[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(uri, [38;5;28mbytes[39m) [38;5;28;01melse[39;00m uri
+    [32m    117[39m [38;5;66;03m# fast-path based on plugin[39;00m
+    [32m    118[39m [38;5;66;03m# (except in legacy mode)[39;00m
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/imageio/core/request.py:250[39m, in [36mRequest.__init__[39m[34m(self, uri, mode, extension, format_hint, **kwargs)[39m
+    [32m    247[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33mf[39m[33m"[39m[33mInvalid Request.Mode: [39m[38;5;132;01m{[39;00mmode[38;5;132;01m}[39;00m[33m"[39m)
+    [32m    249[39m [38;5;66;03m# Parse what was given[39;00m
+    [32m--> [39m[32m250[39m [38;5;28;43mself[39;49m[43m.[49m[43m_parse_uri[49m[43m([49m[43muri[49m[43m)[49m
+    [32m    252[39m [38;5;66;03m# Set extension[39;00m
+    [32m    253[39m [38;5;28;01mif[39;00m extension [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+    [36mFile [39m[32m~/q/.venv/lib/python3.12/site-packages/imageio/core/request.py:410[39m, in [36mRequest._parse_uri[39m[34m(self, uri)[39m
+    [32m    407[39m [38;5;28;01mif[39;00m is_read_request:
+    [32m    408[39m     [38;5;66;03m# Reading: check that the file exists (but is allowed a dir)[39;00m
+    [32m    409[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os.path.exists(fn):
+    [32m--> [39m[32m410[39m         [38;5;28;01mraise[39;00m [38;5;167;01mFileNotFoundError[39;00m([33m"[39m[33mNo such file: [39m[33m'[39m[38;5;132;01m%s[39;00m[33m'[39m[33m"[39m % fn)
+    [32m    411[39m [38;5;28;01melse[39;00m:
+    [32m    412[39m     [38;5;66;03m# Writing: check that the directory to write to does exist[39;00m
+    [32m    413[39m     dn = os.path.dirname(fn)
+
+    [31mFileNotFoundError[39m: No such file: '/Users/lochana-mbp/q/blog/posts/posts/images/ara.jpeg'

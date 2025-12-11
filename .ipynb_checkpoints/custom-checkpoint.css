@@ -1,0 +1,13 @@
+/* Load the font */
+@font-face {
+  font-family: 'AdobeCaslonPro';
+  src: url('fonts/AdobeCaslonPro-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply only where you want - start small */
+body {
+  font-family: 'AdobeCaslonPro', sans-serif;
+}
