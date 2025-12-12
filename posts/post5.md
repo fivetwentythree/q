@@ -1277,3 +1277,83 @@ image = io.imread(image_link)
     [32m    413[39m     dn = os.path.dirname(fn)
 
     [31mFileNotFoundError[39m: No such file: '/Users/lochana-mbp/q/blog/posts/posts/images/ara.jpeg'
+
+``` python
+class Cat:
+    population = []
+    def __init__(self,name):
+        self.name = name
+        for existing_cat in Cat.population:
+            if existing_cat.name == self.name:
+                raise ValueError(f'The {self.name} exists')
+        Cat.population.append(self)        
+        
+```
+
+``` python
+mick = Cat('mick')
+```
+
+``` python
+mick = Cat('mick')
+```
+
+    ValueError: The mick exists
+    [31m---------------------------------------------------------------------------[39m
+    [31mValueError[39m                                Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[15][39m[32m, line 1[39m
+    [32m----> [39m[32m1[39m mick = [43mCat[49m[43m([49m[33;43m'[39;49m[33;43mmick[39;49m[33;43m'[39;49m[43m)[49m
+
+    [36mCell[39m[36m [39m[32mIn[13][39m[32m, line 7[39m, in [36mCat.__init__[39m[34m(self, name)[39m
+    [32m      5[39m [38;5;28;01mfor[39;00m existing_cat [38;5;129;01min[39;00m Cat.population:
+    [32m      6[39m     [38;5;28;01mif[39;00m existing_cat.name == [38;5;28mself[39m.name:
+    [32m----> [39m[32m7[39m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33mf[39m[33m'[39m[33mThe [39m[38;5;132;01m{[39;00m[38;5;28mself[39m.name[38;5;132;01m}[39;00m[33m exists[39m[33m'[39m)
+    [32m      8[39m Cat.population.append([38;5;28mself[39m)
+
+    [31mValueError[39m: The mick exists
+
+``` python
+class Cat:
+  def __init__(self, name):
+    self.name = name
+  def __repr__(self):
+      return f'{self.name}'
+cats = [
+  Cat("Keanu"),
+  Cat("Wilford"),
+  Cat("Ms. Fluff"),
+]
+```
+
+``` python
+cats[1].vaccinated = True 
+cats[1]
+```
+
+    Wilford
+
+``` python
+sum([not hasattr(cat,'vaccinated') for cat in cats])
+```
+
+    2
+
+``` python
+getattr(cats[1],'vaccinated')
+```
+
+    True
+
+``` python
+def get_attr_if_exists(obj,attr,default):
+    if hasattr(obj,attr):
+        return getattr(obj,attr)
+    else:
+        return default
+```
+
+``` python
+get_attr_if_exists(cats[2],'vaccinated','attribute not found')
+```
+
+    'attribute not found'
