@@ -1357,3 +1357,198 @@ get_attr_if_exists(cats[2],'vaccinated','attribute not found')
 ```
 
     'attribute not found'
+
+``` python
+def setattr_defauld(obj,attr,default):
+    if not hasattr(obj,attr):
+        return default
+    return None    
+    
+```
+
+``` python
+# how can we make two objects equal to each other when their attributes are same 
+
+class Cat:
+    def __init__(self,name):
+        self.name = name
+    def __eq__(self,other):
+        if self.name == other.name:return True 
+        
+```
+
+``` python
+k1 = Cat('Mike')
+k2 = Cat('Mike')
+```
+
+``` python
+k1 == k2 
+```
+
+    True
+
+``` python
+class Point:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y 
+    def __eq__(self,other):
+        if not isinstance(other,Point):
+            raise TypeError('Not the same type')
+        return self.x == other.x and self.y == other.y    
+```
+
+``` python
+a1 = Point(3,4)
+a2 = Point(3,4)
+a3 = 'Something'
+```
+
+``` python
+a1 == a2
+```
+
+    True
+
+``` python
+a1 == a3 
+```
+
+    TypeError: Not the same type
+    [31m---------------------------------------------------------------------------[39m
+    [31mTypeError[39m                                 Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[77][39m[32m, line 1[39m
+    [32m----> [39m[32m1[39m [43ma1[49m[43m [49m[43m==[49m[43m [49m[43ma3[49m 
+
+    [36mCell[39m[36m [39m[32mIn[74][39m[32m, line 7[39m, in [36mPoint.__eq__[39m[34m(self, other)[39m
+    [32m      5[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m__eq__[39m([38;5;28mself[39m,other):
+    [32m      6[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(other,Point):
+    [32m----> [39m[32m7[39m         [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([33m'[39m[33mNot the same type[39m[33m'[39m)
+    [32m      8[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m.x == other.x [38;5;129;01mand[39;00m [38;5;28mself[39m.y == other.y
+
+    [31mTypeError[39m: Not the same type
+
+``` python
+class Owner:
+    def __init__(self,ID,email):
+        self.ID = ID 
+        self.email = email 
+    def __eq__(self,other):
+        if isinstance(other,Owner):
+            self.ID == other.ID
+```
+
+``` python
+s1 = Owner(1,'efhei')
+```
+
+``` python
+s1.__dict__.keys()
+```
+
+    dict_keys(['ID', 'email'])
+
+``` python
+class Cat:
+    def __init__(self,name):self.name = name
+    def vaccinated(self):return False
+```
+
+``` python
+s2 = Cat('s2')
+```
+
+``` python
+vaccinated_method = Cat.__dict__['vaccinated']
+```
+
+``` python
+vaccinated_method(s2)
+```
+
+    False
+
+``` python
+class Cat:
+    def __init__(self,name):
+        self.name = name
+    def needed_calories(self):
+        return 300
+    def needs(self):
+        return f'{self.name} needs {self.needed_calories()} calories'
+class Tiger(Cat):
+    def __init__(self,name,white_coat):
+        super().__init__(name)
+        self.white_coat = white_coat
+    def needed_calories(self):
+        return super().needed_calories() * 20 # this same logic can be written like this : return Cat.needed_calories(self) * 20 
+    def needs(self):
+         return f'{self.name} needs {self.needed_calories()} calories'
+        
+```
+
+``` python
+big_keanu = Tiger('Big Keanu',False)
+big_keanu.name
+```
+
+    'Big Keanu'
+
+``` python
+big_keanu.needed_calories()
+```
+
+    6000
+
+``` python
+big_keanu.needs()
+```
+
+    'Big Keanu needs 6000 calories'
+
+``` python
+account_balances = {
+  "Amir": 300,
+  "Betty": 500,
+}
+```
+
+``` python
+class NoAccountError(Exception):
+    pass
+
+def transfer_balance(amount,from_account,to_account):
+    if from_account not in account_balances:
+        raise NoAccountError(f'Can\'t transfer from {from_account}')
+    if account_balances[from_account] <= amount:
+        raise ValueError('Insufficient Funds')
+    account_balances[from_account] -= amount
+    account_balances[to_account] += amount
+        
+```
+
+``` python
+transfer_balance(200,'Amirr','Betty')
+```
+
+    NoAccountError: Can't transfer from Amirr
+    [31m---------------------------------------------------------------------------[39m
+    [31mNoAccountError[39m                            Traceback (most recent call last)
+    [36mCell[39m[36m [39m[32mIn[43][39m[32m, line 1[39m
+    [32m----> [39m[32m1[39m [43mtransfer_balance[49m[43m([49m[32;43m200[39;49m[43m,[49m[33;43m'[39;49m[33;43mAmirr[39;49m[33;43m'[39;49m[43m,[49m[33;43m'[39;49m[33;43mBetty[39;49m[33;43m'[39;49m[43m)[49m
+
+    [36mCell[39m[36m [39m[32mIn[41][39m[32m, line 6[39m, in [36mtransfer_balance[39m[34m(amount, from_account, to_account)[39m
+    [32m      4[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mtransfer_balance[39m(amount,from_account,to_account):
+    [32m      5[39m     [38;5;28;01mif[39;00m from_account [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m account_balances:
+    [32m----> [39m[32m6[39m         [38;5;28;01mraise[39;00m NoAccountError([33mf[39m[33m'[39m[33mCan[39m[38;5;130;01m\'[39;00m[33mt transfer from [39m[38;5;132;01m{[39;00mfrom_account[38;5;132;01m}[39;00m[33m'[39m)
+    [32m      7[39m     [38;5;28;01mif[39;00m account_balances[from_account] <= amount:
+    [32m      8[39m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33m'[39m[33mInsufficient Funds[39m[33m'[39m)
+
+    [31mNoAccountError[39m: Can't transfer from Amirr
+
+``` python
+account_balances
+```
+
+    {'Amir': 100, 'Betty': 700}
